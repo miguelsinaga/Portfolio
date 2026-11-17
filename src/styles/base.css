@@ -1,0 +1,360 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background: var(--paper);
+}
+
+html.is-locked {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+ol,
+dl,
+dd,
+figure {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 500;
+  text-wrap: balance;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+svg {
+  display: block;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-text);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+main:focus {
+  outline: none;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+/* Emphasis is set like an expression marking on a score: serif italic. */
+em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.06em;
+  letter-spacing: -0.015em;
+}
+
+/* ── Utilities ─────────────────────────────────────────────── */
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: calc(var(--z-header) + 1);
+  padding: 0.75rem 1rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: var(--fs-small);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+/* The blue note: a tilted note head used as full stop, bullet and brand mark. */
+.note {
+  display: inline-block;
+  width: 0.2em;
+  height: 0.145em;
+  margin-left: 0.07em;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: rotate(-22deg);
+}
+
+/* A link whose underline draws in from the left and leaves to the right. */
+.link {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35em;
+  padding-bottom: 0.15em;
+  background: linear-gradient(currentColor, currentColor) no-repeat 100% 100% / 0% 1px;
+  transition: background-size var(--dur-short) var(--ease-out);
+}
+
+.link:hover,
+.link:focus-visible {
+  background-size: 100% 1px;
+  background-position: 0% 100%;
+}
+
+.arrow {
+  flex: none;
+  align-self: center;
+  transition: transform var(--dur-short) var(--ease-out);
+}
+
+a:hover > .arrow,
+a:hover .index__end .arrow {
+  transform: translate(0.15em, -0.15em);
+}
+
+.tag {
+  display: inline-block;
+  margin-left: 0.6rem;
+  padding: 0.1rem 0.4rem;
+  border: 1px dashed var(--line-strong);
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  vertical-align: middle;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 2.75rem;
+  padding: 0 1.1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  transition:
+    background-color var(--dur-micro) ease,
+    color var(--dur-micro) ease,
+    border-color var(--dur-micro) ease;
+}
+
+.chip:hover {
+  border-color: var(--ink);
+}
+
+.chip:active {
+  transform: scale(0.97);
+}
+
+.chip[aria-pressed='true'] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.chip__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+}
+
+.chip[aria-pressed='true'] .chip__dot {
+  background: currentColor;
+}
+
+.icon-btn {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  transition: background-color var(--dur-micro) ease;
+}
+
+.icon-btn:hover {
+  background: var(--surface);
+}
+
+.icon-btn:active {
+  transform: scale(0.94);
+}
+
+.magnetic {
+  display: inline-block;
+}
+
+/* Text split into lines by GSAP: give the clip room for ascenders and descenders. */
+.line-mask {
+  padding: 0.2em 0.04em 0.2em;
+  margin: -0.2em -0.04em -0.2em;
+}
+
+/* Hatched frame for imagery that has not been supplied yet. */
+.placeholder {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.placeholder__inner {
+  position: absolute;
+  inset: -5% 0;
+  display: grid;
+  place-items: center;
+  background: repeating-linear-gradient(135deg, transparent 0 13px, var(--line) 13px 14px);
+}
+
+.placeholder__label {
+  display: grid;
+  gap: 0.2rem;
+  max-width: calc(100% - 2rem);
+  padding: 0.5rem 0.75rem;
+  border: 1px dashed var(--line-strong);
+  background: var(--paper);
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.placeholder__label span {
+  color: var(--muted);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Key and value rows with hairlines, used in About and Contact. */
+.rows__row {
+  display: grid;
+  grid-template-columns: minmax(6.5rem, 0.5fr) 1fr;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 0.95rem 0;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--fs-body-lg);
+}
+
+.rows__row:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.rows__row dd,
+.rows__row > span:last-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.rows__row dd {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.75rem;
+}
+
+.rows__row dd .tag {
+  margin-left: 0;
+}
+
+.rows__row--muted {
+  color: var(--muted);
+}
+
+/* ── Theme change: the new palette opens as a circle (see ThemeToggle) ── */
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

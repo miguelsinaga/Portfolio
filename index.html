@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Miguel Sinaga — Informatics Engineering student at Institut Teknologi Bandung. Software where algorithms meet music, and the systems work in between."
+    />
+    <meta name="theme-color" content="#1d3bff" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Miguel Sinaga — Portfolio</title>
+    <script>
+      // Set the theme before first paint so there is no flash of the wrong palette.
+      (function () {
+        var t = null;
+        try {
+          t = localStorage.getItem('theme');
+        } catch (e) {}
+        if (t !== 'light' && t !== 'dark') {
+          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.dataset.theme = t;
+      })();
+    </script>
+    <style>
+      /* Holds the screen until React mounts the real overlay in the same colour. */
+      #boot {
+        position: fixed;
+        inset: 0;
+        z-index: 2000;
+        background: #1d3bff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="boot" aria-hidden="true"></div>
+    <div id="root"></div>
+    <noscript>
+      <p style="padding: 2rem; font-family: sans-serif">
+        This portfolio needs JavaScript. You can find Miguel on
+        <a href="https://github.com/miguelsinaga">GitHub</a>.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

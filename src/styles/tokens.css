@@ -1,0 +1,91 @@
+/*
+ * Design tokens. Two inks on paper: a blue-black and one cobalt, the "blue note".
+ * Components use these names only; no raw colour values elsewhere.
+ */
+
+:root {
+  color-scheme: light;
+
+  /* Colour */
+  --paper: #f1f2f4;
+  --surface: #e4e6eb;
+  --ink: #0c0e14;
+  --muted: #565c6c;
+  --line: rgba(12, 14, 20, 0.15);
+  --line-strong: rgba(12, 14, 20, 0.42);
+  --accent: #1d3bff;
+  --accent-text: #1d3bff;
+  --on-accent: #ffffff;
+  /* The overlay keeps the same blue in both themes. */
+  --brand: #1d3bff;
+  --on-brand: #ffffff;
+
+  /* Cover art: three tones for lit, side and shaded faces */
+  --vox-top: #f8f9fb;
+  --vox-left: #b7bcc8;
+  --vox-right: #6b7183;
+  --vox-accent-top: #93a3ff;
+  --vox-accent-left: #1d3bff;
+  --vox-accent-right: #1227b4;
+
+  /* Type */
+  --font-sans: 'Host Grotesk Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-serif: 'Newsreader Variable', 'Iowan Old Style', 'Times New Roman', serif;
+  --font-mono: 'DM Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  --fs-display: 28vw;
+  --fs-h1: clamp(3rem, 10.5vw, 11rem);
+  --fs-h2: clamp(1.875rem, 4.6vw, 4.5rem);
+  --fs-h3: clamp(1.5rem, 2.4vw, 2.25rem);
+  --fs-lead: clamp(1.25rem, 1.9vw, 1.75rem);
+  --fs-body-lg: clamp(1.0625rem, 1.25vw, 1.25rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-label: 0.75rem;
+
+  /* Space: 4 / 8 rhythm, fluid at the top end */
+  --gutter: clamp(1.25rem, 4vw, 4rem);
+  --gap: clamp(1rem, 2vw, 1.5rem);
+  --space-section: clamp(6rem, 13vw, 13rem);
+  --header-h: 4.5rem;
+
+  /* Motion (mirrors src/lib/gsap.ts) */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
+  --dur-micro: 0.25s;
+  --dur-short: 0.6s;
+  --dur-base: 0.9s;
+
+  /* Layers */
+  --z-menu: 90;
+  --z-header: 100;
+  --z-cursor: 900;
+  --z-overlay: 1000;
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --fs-display: clamp(6rem, 15.3vw, 21rem);
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --paper: #0b0d12;
+  --surface: #151922;
+  --ink: #e9ebef;
+  --muted: #959cab;
+  --line: rgba(233, 235, 239, 0.15);
+  --line-strong: rgba(233, 235, 239, 0.42);
+  --accent: #4461ff;
+  --accent-text: #93a2ff;
+  --on-accent: #ffffff;
+
+  --vox-top: #e3e6ee;
+  --vox-left: #7d8498;
+  --vox-right: #3b4153;
+  --vox-accent-top: #aab6ff;
+  --vox-accent-left: #4461ff;
+  --vox-accent-right: #2638c4;
+}
